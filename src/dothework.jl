@@ -14,15 +14,15 @@ function a_readable_number(numstr::String, rns::ReadableNumStyle)
 end    
 
 
-function readable_nonneg_integer{I<:Integer}(s::String, digits_spanned::I, group_separator::Char)
-    n = length(s)
+function readable_nonneg_integer{I<:Integer}(str::String, digits_spanned::I, group_separator::Char)
+    n = length(str)
     n==0 && return "0"
 
     sinteger, sexponent =
-        if contains(s,"e")
-           split(s,'e')
+        if contains(str,"e")
+           split(str,'e')
         else
-           s, ""
+           str, ""
         end
 
     n = length(sinteger)
@@ -62,9 +62,9 @@ function readable_nonneg_integer{I<:Integer}(s::String, digits_spanned::I, group
     end
 end
 
-function readable_integer{I<:Integer}(s::String, digits_spanned::I, group_separator::Char)
+function readable_integer{I<:Integer}(str::String, digits_spanned::I, group_separator::Char)
     if s[1] != "-"
-       readable_nonneg_integer(s, digits_spanned, group_separator)
+       readable_nonneg_integer(str, digits_spanned, group_separator)
     else
        s1 = string(s[2:end])
        pretty = readable_nonneg_integer(s1, digits_spanned, group_separator)
