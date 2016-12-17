@@ -1,6 +1,19 @@
 
 # do the work
 
+
+function a_readable_number(numstr::String, pns::PrettyNumberStyle)
+    local ipart, fpart, iread, fread, readable
+    ipart, fpart = split(numstr, FRACPOINT)[1:2]
+    iread = ifelse( ipart == "", "0", 
+                    readable_integer(ipart, pns.integral_digits_spanned, pns.between_integral_spans) )
+    fread = ifelse( fpart == "", "" , 
+                    readable_fraction(fpart, pns.fractional_digits_spanned, pns.between_fractional_spans) )
+    readable = (fpart == "") ? iread : string(iread, pns.between_parts, fread)
+    return readable
+end    
+
+
 function readable_nonneg_integer{I<:Integer}(s::String, digits_spanned::I, group_separator::Char)
     n = length(s)
     n==0 && return "0"
