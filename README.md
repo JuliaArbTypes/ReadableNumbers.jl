@@ -28,10 +28,13 @@ Pkg.clone("https://github.com/JuliaArbTypes/ReadableNumbers.jl")
 
 # ReadableNumStyle( integer_group, fractional_group, integer_sep, fractional_sep, decimal_point )
 > ReadableNumStyle(3, 5, ',', '◦', '⬩' )
-> showpretty( factorial( 32%Int128 ) )
-263,130,836,933,693,530,167,218,012,160,000,000
+
 > showpretty(goldenratio)
 1⬩61803◦39887◦49894◦84820◦45868◦34365◦63811◦77203◦09179◦80576◦28621◦355
+
+> showpretty( factorial( 32%Int128 ) )
+263,130,836,933,693,530,167,218,012,160,000,000
+
 
 ```
 
