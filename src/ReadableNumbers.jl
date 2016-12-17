@@ -3,10 +3,9 @@ module ReadableNumbers
 import Base: parse
 
 export readable, PrettyNumberStyle
-  #=
+#=
     generating and showing prettier numeric strings
-      PrettyNumber, stringpretty, showpretty
-  =#     
+=#     
 
 if VERSION < v"0.6"
     split(str::String, sep::Char=" ") = map(String, Base.split(str, sep))  # do not work with SubStrings
