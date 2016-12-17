@@ -1,11 +1,13 @@
 module ReadableNumbers
 
-import Base: parse
-
-export readable, PrettyNumberStyle
 #=
     generating and showing prettier numeric strings
 =#     
+
+import Base: parse
+
+export readable, PrettyNumberStyle,
+       stringpretty, showpretty 
 
 if VERSION < v"0.6"
     split(str::String, sep::Char=" ") = map(String, Base.split(str, sep))  # do not work with SubStrings
@@ -179,13 +181,7 @@ function readable_fraction{I<:Integer}(s::String, digits_spanned::I, group_separ
 end
 
 
-
-# parse readable numeric strings
-
-parse{T<:Union{Signed,AbstractFloat}}(::Type{T}, s::String, ch::Char) =
-    parse(T, join(split(s,ch),""))
-parse{T<:AbstractFloat}(::Type{T}, s::String, ch1::Char, ch2::Char) =
-    parse(T, join(split(s,(ch1,ch2)),""))
+#include("iohelp.jl")
 
 
 end # module
