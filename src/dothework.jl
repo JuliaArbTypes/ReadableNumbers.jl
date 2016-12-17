@@ -67,8 +67,8 @@ function readable_integer{I<:Integer}(str::String, digits_spanned::I, group_sepa
        readable_nonneg_integer(str, digits_spanned, group_separator)
     else
        s1 = string(s[2:end])
-       pretty = readable_nonneg_integer(s1, digits_spanned, group_separator)
-       string("-", pretty)
+       integral_readable = readable_nonneg_integer(s1, digits_spanned, group_separator)
+       string("-", integral_readable)
     end
 end
 
@@ -80,11 +80,11 @@ function readable_fraction{I<:Integer}(str::String, digits_spanned::I, group_sep
            str, ""
         end
 
-     = reverse(readable_nonneg_integer(reverse(sfrac), digits_spanned, group_separator))
+    fractional_readable = reverse(readable_nonneg_integer(reverse(sfrac), digits_spanned, group_separator))
 
     if length(sexponent) != 0
-       string(pretty,"e",sexponent)
+       string(fractional_readable,"e",sexponent)
     else
-       pretty
+       fractional_readable
     end
 end
