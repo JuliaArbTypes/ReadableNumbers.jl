@@ -6,7 +6,7 @@ module ReadableNumbers
 
 import Base: parse
 
-export readable, PrettyNumberStyle,
+export readable, ReadableNumStyle,
        stringpretty, showpretty 
 
 if VERSION < v"0.6"
