@@ -46,6 +46,10 @@ ReadableNumStyle{I<:Integer}(
     ) =
     ReadableNumStyle(idigs, rdigs, ibtwn, rbtwn, fracpt)
 
+ReadableNumStyle{I<:Integer}(digs::I, btwn::Char, fracpt::Char=FRACPOINT) =
+    ReadableNumStyle( digs%Int32, digs%Int32, btwn, btwn, fracpt )
+ReadableNumStyle{I<:Integer}(btwn::Char, digs::I, fracpt::Char=FRACPOINT) =
+    ReadableNumStyle( digs, btwn, fracpt )
 
 # remember the most recent pretty number style
 
