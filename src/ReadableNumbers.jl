@@ -4,7 +4,7 @@ module ReadableNumbers
     generating and showing prettier numeric strings
 =#     
 
-export readable, ReadableNumStyle, stringpretty, showpretty 
+export ReadableNumStyle, readable, show_readable 
 
 import Base: STDOUT, parse
 
