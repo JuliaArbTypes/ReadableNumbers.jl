@@ -4,10 +4,10 @@ module ReadableNumbers
     generating and showing prettier numeric strings
 =#     
 
+export readable, ReadableNumStyle, stringpretty, showpretty 
+
 import Base: STDOUT, parse
 
-export readable, ReadableNumStyle,
-       stringpretty, showpretty 
 
 if VERSION < v"0.6"
     split(str::String, sep::Char=" ") = map(String, Base.split(str, sep))  # do not work with SubStrings
