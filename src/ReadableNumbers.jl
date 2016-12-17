@@ -14,7 +14,7 @@ if VERSION < v"0.6"
 end    
 
 # determine locale convention for the fractional (decimal) point
-const LOCALE_STR = string( 1 + Float64( 1 // 5 ) )
+const LOCALE_STR = string( 1.5 )
 const FRACPOINT  = LOCALE_STR[ nextind(LOCALE_STR, 1) ]
 
 include("type.jl")
