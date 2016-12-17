@@ -2,14 +2,14 @@
 # do the work
 
 
-function a_readable_number(numstr::String, rns::ReadableNumStyle)
-    local ipart, fpart, iread, fread, readable
-    ipart, fpart = split(numstr, FRACPOINT)[1:2]
-    iread = ifelse( ipart == "", "0", 
+function a_readable_number(str::String, rns::ReadableNumStyle)
+    local integral_part, fractional_part, integral_readable, fractional_readable, readable
+    integral_part, fractional_part = split(str, FRACPOINT)[1:2]
+    integral_readable = ifelse( ipart == "", "0", 
                     readable_integer(ipart, rns.integral_digits_spanned, rns.between_integral_spans) )
-    fread = ifelse( fpart == "", "" , 
-                    readable_fraction(fpart, rns.fractional_digits_spanned, rns.between_fractional_spans) )
-    readable = (fpart == "") ? iread : string(iread, rns.between_parts, fread)
+    fractional_readable = ifelse( fractional_part == "", "" , 
+                    readable_fraction(fractional_part, rns.fractional_digits_spanned, rns.between_fractional_spans) )
+    readable = (fractional_part == "") ? integral_readable : string(integral_readable, rns.between_parts, fractional_readable)
     return readable
 end    
 
@@ -63,7 +63,7 @@ function readable_nonneg_integer{I<:Integer}(str::String, digits_spanned::I, gro
 end
 
 function readable_integer{I<:Integer}(str::String, digits_spanned::I, group_separator::Char)
-    if s[1] != "-"
+    if str[1] != "-"
        readable_nonneg_integer(str, digits_spanned, group_separator)
     else
        s1 = string(s[2:end])
@@ -72,12 +72,12 @@ function readable_integer{I<:Integer}(str::String, digits_spanned::I, group_sepa
     end
 end
 
-function readable_fraction{I<:Integer}(s::String, digits_spanned::I, group_separator::Char)
+function readable_fraction{I<:Integer}(str::String, digits_spanned::I, group_separator::Char)
     sfrac, sexponent =
-        if contains(s,"e")
-           split(s,'e')
+        if contains(str,"e")
+           split(str,'e')
         else
-           s, ""
+           str, ""
         end
 
     pretty = reverse(readable_nonneg_integer(reverse(sfrac), digits_spanned, group_separator))
