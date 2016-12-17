@@ -18,7 +18,6 @@ const LOCALE_STR = string( 1 + Float64( 1 // 5 ) )
 const FRACPOINT  = LOCALE_STR[ nextind(LOCALE_STR, 1) ]
 
 include("type.jl")
-include("readable.jl")
 include("dothework.jl")
 include("iohelp.jl")
 
