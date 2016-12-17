@@ -9,8 +9,15 @@
 `
  ```
 
-
 -------
 
-### Easily read representations for extended precision floating point values.
+### installation
+Pkg.clone("https://github.com/JuliaArbTypes/ReadableNumbers.jl")
+
+### use
+```julia
+using ReadableNumbers
+
+show(readable(golden))
+```
 
