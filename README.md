@@ -18,6 +18,9 @@ Pkg.clone("https://github.com/JuliaArbTypes/ReadableNumbers.jl")
 ```julia
 using ReadableNumbers
 
-show(readable(golden))
+golden_str = readable_str(golden)
+
+readable(golden,3,4,' ','_')
+
 ```
 
