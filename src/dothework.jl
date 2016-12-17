@@ -5,8 +5,8 @@
 function a_readable_number(str::String, rns::ReadableNumStyle)
     local integral_part, fractional_part, integral_readable, fractional_readable, readable
     integral_part, fractional_part = split(str, FRACPOINT)[1:2]
-    integral_readable = ifelse( ipart == "", "0", 
-                    readable_integer(ipart, rns.integral_digits_spanned, rns.between_integral_spans) )
+    integral_readable = ifelse( integral_part == "", "0", 
+                    readable_integer(integral_part, rns.integral_digits_spanned, rns.between_integral_spans) )
     fractional_readable = ifelse( fractional_part == "", "" , 
                     readable_fraction(fractional_part, rns.fractional_digits_spanned, rns.between_fractional_spans) )
     readable = (fractional_part == "") ? integral_readable : string(integral_readable, rns.between_parts, fractional_readable)
@@ -80,7 +80,7 @@ function readable_fraction{I<:Integer}(str::String, digits_spanned::I, group_sep
            str, ""
         end
 
-    pretty = reverse(readable_nonneg_integer(reverse(sfrac), digits_spanned, group_separator))
+     = reverse(readable_nonneg_integer(reverse(sfrac), digits_spanned, group_separator))
 
     if length(sexponent) != 0
        string(pretty,"e",sexponent)
