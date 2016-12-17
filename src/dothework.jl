@@ -2,14 +2,14 @@
 # do the work
 
 
-function a_readable_number(numstr::String, pns::PrettyNumberStyle)
+function a_readable_number(numstr::String, rns::ReadableNumStyle)
     local ipart, fpart, iread, fread, readable
     ipart, fpart = split(numstr, FRACPOINT)[1:2]
     iread = ifelse( ipart == "", "0", 
-                    readable_integer(ipart, pns.integral_digits_spanned, pns.between_integral_spans) )
+                    readable_integer(ipart, rns.integral_digits_spanned, rns.between_integral_spans) )
     fread = ifelse( fpart == "", "" , 
-                    readable_fraction(fpart, pns.fractional_digits_spanned, pns.between_fractional_spans) )
-    readable = (fpart == "") ? iread : string(iread, pns.between_parts, fread)
+                    readable_fraction(fpart, rns.fractional_digits_spanned, rns.between_fractional_spans) )
+    readable = (fpart == "") ? iread : string(iread, rns.between_parts, fread)
     return readable
 end    
 
