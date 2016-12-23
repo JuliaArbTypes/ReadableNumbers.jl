@@ -1,6 +1,6 @@
 # ReadableNumbers.jl
 
-### Extended precision floating point values are made more easily readable.
+### Extended precision floating point values made more easily readable.
      
 ##### Copyright © 2016 by Jeffrey Sarnoff.
 
