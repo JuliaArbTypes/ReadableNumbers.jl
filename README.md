@@ -1,6 +1,6 @@
 # ReadableNumbers.jl
 
-### Extended precision floating point values made more easily readable.
+### Extended precision floating point values made more easily readable.  [![Build Status](https://travis-ci.org/JuliaLang/METADATA.jl.svg?branch=metadata-v2)](https://travis-ci.org/JuliaLang/METADATA.jl)
      
 ##### Copyright © 2016 by Jeffrey Sarnoff.   Released under the MIT License.
 
