@@ -4,13 +4,9 @@
      
 ##### Copyright © 2016 by Jeffrey Sarnoff.
 
- ```
-
--------
-
 ### installation
-Pkg.clone("https://github.com/JuliaArbTypes/ReadableNumbers.jl")
-
+`Pkg.clone("https://github.com/JuliaArbTypes/ReadableNumbers.jl")`
+ 
 ### use
 ```julia
 > using ReadableNumbers
