@@ -2,7 +2,7 @@
 
 ### Extended precision floating point values made more easily readable.
      
-##### Copyright © 2016 by Jeffrey Sarnoff.  Released under the MIT License.
+##### Copyright © 2016 by Jeffrey Sarnoff.   Released under the MIT License.
 
 ### installation
 `Pkg.clone("https://github.com/JuliaArbTypes/ReadableNumbers.jl")`
