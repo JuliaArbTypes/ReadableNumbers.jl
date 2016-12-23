@@ -37,8 +37,8 @@ ReadableNumStyle{I<:Integer}(
     ibtwn::Char, rbtwn::Char=FBTWN, idigs::I=IDIGS%I, rdigs::I=FDIGS%I, fracpt::Char=FRACPOINT
     ) =
     ReadableNumStyle(idigs, rdigs, ibtwn, rbtwn, fracpt)
-ReadableNumStyle{I<:Integer}(
-    idigs::I, ibtwn::Char, rdigs::I=FDIGS%I, rbtwn::Char=FBTWN, fracpt::Char=FRACPOINT
+ReadableNumStyle(
+    idigs::Signed, ibtwn::Char, rdigs::I=FDIGS%I, rbtwn::Char=FBTWN, fracpt::Char=FRACPOINT
     ) =
     ReadableNumStyle( idigs%Int32, rdigs%Int32, ibtwn, rbtwn, fracpt )
 ReadableNumStyle{I<:Integer}(
