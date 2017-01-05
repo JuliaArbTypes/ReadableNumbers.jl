@@ -16,8 +16,8 @@ end
 
 # parse readable numeric strings
 
-parse{T<:Union{Signed,AbstractFloat}}(::Type{T}, s::String, ch::Char) =
-    parse(T, join(split(s,ch),""))
+parse_readable{T<:Union{Signed,AbstractFloat}}(::Type{T}, s::String, ch::Char) =
+    Base.parse(T, join(split(s,ch),""))
 
-parse{T<:AbstractFloat}(::Type{T}, s::String, ch1::Char, ch2::Char) =
-    parse(T, join(split(s,(ch1,ch2)),""))
+parse_readable{T<:AbstractFloat}(::Type{T}, s::String, ch1::Char, ch2::Char) =
+    Base.parse(T, join(split(s,(ch1,ch2)),""))
