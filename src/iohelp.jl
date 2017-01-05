@@ -1,5 +1,3 @@
-import Base: STDOUT
-
 
 # show 
 
