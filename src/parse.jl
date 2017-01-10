@@ -11,6 +11,6 @@ parse_readable{T<:AbstractFloat}(::Type{T}, s::String, ch1::Char, ch2::Char) =
 how many times does char c occur in string s
 """
 function count_char(s::String, c::Char)
-    r = Regex(string(c))
+    r = (c=='.') ? Regex("\\.") : Regex(string(c))
     return length( matchall(r,s) )
 end
