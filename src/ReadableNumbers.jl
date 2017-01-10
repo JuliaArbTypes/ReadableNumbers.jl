@@ -21,7 +21,8 @@ const FRACPOINT  = LOCALE_STR[ nextind(LOCALE_STR, 1) ]
 
 include("type.jl")
 include("dothework.jl")
-include("iohelp.jl")
+include("show.jl")
+include("parse.jl")
 
 
 end # module
