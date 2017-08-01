@@ -14,7 +14,7 @@ function a_readable_number(str::String, rns::ReadableNumStyle)
 end    
 
 
-function readable_nonneg_integer{I<:Integer}(str::String, digits_spanned::I, group_separator::Char)
+function readable_nonneg_integer(str::String, digits_spanned::I, group_separator::Char) where {I <: Integer}
     n = length(str)
     n==0 && return "0"
 
@@ -62,7 +62,7 @@ function readable_nonneg_integer{I<:Integer}(str::String, digits_spanned::I, gro
     end
 end
 
-function readable_integer{I<:Integer}(str::String, digits_spanned::I, group_separator::Char)
+function readable_integer(str::String, digits_spanned::I, group_separator::Char) where {I <: Integer}
     if str[1] != "-"
        readable_nonneg_integer(str, digits_spanned, group_separator)
     else
@@ -72,7 +72,7 @@ function readable_integer{I<:Integer}(str::String, digits_spanned::I, group_sepa
     end
 end
 
-function readable_fraction{I<:Integer}(str::String, digits_spanned::I, group_separator::Char)
+function readable_fraction(str::String, digits_spanned::I, group_separator::Char) where {I <: Integer}
     sfrac, sexponent =
         if contains(str,"e")
            split(str,'e')
