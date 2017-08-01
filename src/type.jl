@@ -26,29 +26,29 @@ const FBTWN = '_'                          # between_fractional_digits
 
 ReadableNumStyle() = ReadableNumStyle(IDIGS, FDIGS, IBTWN, FBTWN, FRACPOINT)
 
-function ReadableNumStyle{I<:Integer}(
-             idigs::I, rdigs::I=FDIGS%I, ibtwn::Char=IBTWN, rbtwn::Char=FBTWN, fracpt::Char=FRACPOINT)
+function ReadableNumStyle(
+             idigs::I, rdigs::I=FDIGS%I, ibtwn::Char=IBTWN, rbtwn::Char=FBTWN, fracpt::Char=FRACPOINT) where {I <: Integer}
     pns = ReadableNumStyle( idigs%Int32, rdigs%Int32, ibtwn, rbtwn, fracpt )
     set_pretty_number_style!(pns)
     return pns
 end    
 
-ReadableNumStyle{I<:Integer}(
+ReadableNumStyle(
     ibtwn::Char, rbtwn::Char=FBTWN, idigs::I=IDIGS%I, rdigs::I=FDIGS%I, fracpt::Char=FRACPOINT
-    ) =
+    ) where {I <: Integer} =
     ReadableNumStyle(idigs, rdigs, ibtwn, rbtwn, fracpt)
-ReadableNumStyle{S<:Signed}(
+ReadableNumStyle(
     idigs::S, ibtwn::Char, rdigs::S=FDIGS%S, rbtwn::Char=FBTWN, fracpt::Char=FRACPOINT
-    ) =
+    ) where {S <: Signed} =
     ReadableNumStyle( idigs%Int32, rdigs%Int32, ibtwn, rbtwn, fracpt )
-ReadableNumStyle{S<:Signed}(
+ReadableNumStyle(
     ibtwn::Char, idigs::S, rbtwn::Char=FBTWN, rdigs::S=FDIGS%S, fracpt::Char=FRACPOINT
-    ) =
+    ) where {S <: Signed} =
     ReadableNumStyle(idigs, rdigs, ibtwn, rbtwn, fracpt)
 
-ReadableNumStyle{I<:Integer}(digs::I, btwn::Char, fracpt::Char=FRACPOINT) =
+ReadableNumStyle(digs::I, btwn::Char, fracpt::Char=FRACPOINT) where {I <: Integer} =
     ReadableNumStyle( digs%Int32, digs%Int32, btwn, btwn, fracpt )
-ReadableNumStyle{I<:Integer}(btwn::Char, digs::I, fracpt::Char=FRACPOINT) =
+ReadableNumStyle(btwn::Char, digs::I, fracpt::Char=FRACPOINT) where {I <: Integer} =
     ReadableNumStyle( digs, btwn, fracpt )
 
 # remember the most recent pretty number style
@@ -66,7 +66,7 @@ end
 
 # accept extended precision numbers and make them become readable
 
-function readable{T<:Real}(x::T, pns::ReadableNumStyle=get_pretty_number_style())
+function readable(x::T, pns::ReadableNumStyle=get_pretty_number_style()) where {T <: Real}
     numstr = string(string(x),FRACPOINT)
     return a_readable_number(numstr, pns)
 end
