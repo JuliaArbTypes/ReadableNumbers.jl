@@ -5,7 +5,7 @@ ReadableNumStyle field naming
     _integral digits_ preceed the fraction_marker (decimal point)
     _fractional digits_ follow  the fraction_marker (decimal point)
 """
-immutable ReadableNumStyle
+struct ReadableNumStyle
     integral_digits_spanned::Int32
     fractional_digits_spanned::Int32
     between_integral_spans::Char
