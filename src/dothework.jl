@@ -19,7 +19,7 @@ function readable_nonneg_integer(str::String, digits_spanned::I, group_separator
     n==0 && return "0"
 
     sinteger, sexponent =
-        if contains(str,"e")
+        if occursin("e", str)
            split(str,'e')
         else
            str, ""
@@ -29,9 +29,9 @@ function readable_nonneg_integer(str::String, digits_spanned::I, group_separator
 
     fullgroups, finalgroup = divrem(n, digits_spanned)
 
-    sv = convert(Vector{Char},sinteger)
+    sv = Vector{Char}(sinteger)
     p = repeat(" ", n+(fullgroups-1)+(finalgroup!=0))
-    pretty = convert(Vector{Char},p)
+    pretty = Vector{Char}(p)
 
     sourceidx = n
     targetidx = length(pretty)
@@ -53,7 +53,7 @@ function readable_nonneg_integer(str::String, digits_spanned::I, group_separator
         pretty[(targetidx-finalgroup+1):targetidx] = sv[(sourceidx-finalgroup+1):sourceidx]
     end
 
-    prettystring = convert(String, pretty)
+    prettystring = String(pretty)
 
     if length(sexponent) != 0
        string(prettystring,"e",sexponent)
@@ -74,7 +74,7 @@ end
 
 function readable_fraction(str::String, digits_spanned::I, group_separator::Char) where {I <: Integer}
     sfrac, sexponent =
-        if contains(str,"e")
+        if occursin("e", str)
            split(str,'e')
         else
            str, ""
