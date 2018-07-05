@@ -1,5 +1,3 @@
-
-
 """
 ReadableNumStyle field naming
     _integral digits_ preceed the fraction_marker (decimal point)
