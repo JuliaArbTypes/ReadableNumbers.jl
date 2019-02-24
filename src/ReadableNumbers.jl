@@ -1,5 +1,3 @@
-__precompile__(true)
-
 module ReadableNumbers
 
 #=
@@ -8,7 +6,7 @@ module ReadableNumbers
 
 export ReadableNumStyle, readable, show_readable, parse_readable 
 
-import Base: STDOUT
+import Base: stdout
 
 
 if typeof(Base.split("a","b")[1]) == SubString{String}
