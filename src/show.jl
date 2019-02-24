@@ -7,6 +7,6 @@ end
 
 function show_readable(x::T) where {T <: Real}
     str = readable(x)
-    print(STDOUT, str)
+    print(stdout, str)
 end    
 
