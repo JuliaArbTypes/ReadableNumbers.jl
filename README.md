@@ -2,12 +2,12 @@
 
 ### Extended precision floating point values made more easily readable.
      
-##### Copyright © 2016 by Jeffrey Sarnoff.   Released under the MIT License.
+##### Copyright © 2016-2019 by Jeffrey Sarnoff.   Released under the MIT License.
 
 #####   [![Build Status](https://travis-ci.org/JuliaLang/METADATA.jl.svg?branch=metadata-v2)](https://travis-ci.org/JuliaLang/METADATA.jl)
 
 ### installation
-`Pkg.clone("https://github.com/JuliaArbTypes/ReadableNumbers.jl")`
+`pkg> add ReadableNumbers`
  
 ### use
 ```julia
