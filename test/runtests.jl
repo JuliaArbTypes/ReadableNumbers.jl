@@ -1,5 +1,5 @@
 using ReadableNumbers
-using Base.Test
+using Test
 
 setprecision(BigFloat,128);
 
